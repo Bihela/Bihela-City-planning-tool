@@ -14,7 +14,7 @@ dependencies {
 }
 
 application {
-    mainClass = 'edu.curtin.app.App'
+    mainClass = 'edu.curtin.app.Main'
 }
 
 compileJava {
@@ -41,4 +41,12 @@ pmd {
     rulesMinimumPriority = 5
     ruleSets = []
     ruleSetFiles = files('oose-pmd-rules.xml')
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java']
+        }
+    }
 }

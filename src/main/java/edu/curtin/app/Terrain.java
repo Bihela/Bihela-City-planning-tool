@@ -1,4 +1,4 @@
-package main.java.edu.curtin.app;
+package edu.curtin.app;
 
 public enum Terrain {
     FLAT("flat"), SWAMPY("swampy"), ROCKY("rocky");
@@ -14,7 +14,7 @@ public enum Terrain {
     }
 
     public static Terrain fromString(String value) {
-        for (Terrain t : Terrain.values()) {
+        for (Terrain t : values()) { // Changed from Terrain.values()
             if (t.value.equalsIgnoreCase(value)) {
                 return t;
             }

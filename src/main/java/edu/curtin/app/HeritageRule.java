@@ -1,21 +1,15 @@
-package main.java.edu.curtin.app;
+package edu.curtin.app;
 
 public class HeritageRule implements ZoningRule {
     private final String material;
 
-    public HeritageRule(String material) {
-        if (!material.equals("wood") && !material.equals("stone") && !material.equals("brick")) {
-            throw new IllegalArgumentException("Invalid heritage material: " + material);
-        }
-        this.material = material;
-    }
+    public HeritageRule(String material) { this.material = material; }
 
-    public String getMaterial() {
-        return material;
+    @Override
+    public String checkBuildable(Structure structure) { // Renamed
+        return material.equals(structure.getMaterial()) ? null : "Material must match heritage: " + material;
     }
 
     @Override
-    public String getType() {
-        return "heritage";
-    }
+    public double applyCost(double baseCost) { return baseCost; }
 }

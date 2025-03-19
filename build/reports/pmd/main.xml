@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 https://pmd.github.io/schema/report_2_0_0.xsd" version="7.3.0" timestamp="2025-03-19T15:26:04.061">
+<file name="/root/base_java_project/src/main/java/edu/curtin/app/GridSquare.java">
+<violation beginline="48" endline="48" begincolumn="12" endcolumn="20" rule="CommentDefaultAccessModifier" ruleset="Code Style" package="edu.curtin.app" class="GridSquare" method="baseCost" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.3.0/pmd_rules_java_codestyle.html#commentdefaultaccessmodifier" priority="3">
+Write 'private', 'protected' or 'public', unless you _really intend_ to use default package-private access, in which case you should write '/* default */'.
+</violation>
+</file>
+</pmd>

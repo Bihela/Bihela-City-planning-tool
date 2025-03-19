@@ -1,4 +1,4 @@
-package main.java.edu.curtin.app;
+package edu.curtin.app;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -10,7 +10,6 @@ public class GridLoader {
 
     public Grid loadGrid(String filename) throws IOException {
         try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
-            // Read dimensions
             String[] dimensions = reader.readLine().split(",");
             if (dimensions.length != 2) {
                 throw new IllegalArgumentException("Invalid grid dimensions line");
@@ -48,13 +47,13 @@ public class GridLoader {
                 throw new IllegalArgumentException("Grid file does not match specified dimensions");
             }
 
-            LOGGER.info("Successfully loaded grid from " + filename);
+            LOGGER.info(() -> "Successfully loaded grid from " + filename);
             return grid;
         } catch (NumberFormatException e) {
-            LOGGER.severe("Numeric parsing error in file " + filename + ": " + e.getMessage());
+            LOGGER.severe(() -> "Numeric parsing error in file " + filename + ": " + e.getMessage());
             throw new IllegalArgumentException("Invalid numeric value in grid file", e);
         } catch (IOException e) {
-            LOGGER.severe("Error reading file " + filename + ": " + e.getMessage());
+            LOGGER.severe(() -> "Error reading file " + filename + ": " + e.getMessage());
             throw e;
         }
     }

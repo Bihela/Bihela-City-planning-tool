@@ -1,0 +1,5 @@
+2,2
+flat,flood-risk=50
+swampy,heritage=wood
+flat
+rocky,height-limit=10

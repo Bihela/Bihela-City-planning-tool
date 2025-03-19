@@ -1,5 +1,6 @@
-package main.java.edu.curtin.app;
+package edu.curtin.app;
 
 public interface ZoningRule {
-    String getType();
+    String checkBuildable(Structure structure); // Renamed
+    double applyCost(double baseCost);
 }

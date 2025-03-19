@@ -1,21 +1,15 @@
-package main.java.edu.curtin.app;
+package edu.curtin.app;
 
 public class HeightLimitRule implements ZoningRule {
     private final int limit;
 
-    public HeightLimitRule(int limit) {
-        if (limit <= 0) {
-            throw new IllegalArgumentException("Height limit must be positive: " + limit);
-        }
-        this.limit = limit;
-    }
+    public HeightLimitRule(int limit) { this.limit = limit; }
 
-    public int getLimit() {
-        return limit;
+    @Override
+    public String checkBuildable(Structure structure) { // Renamed from canBuild
+        return structure.getFloors() <= limit ? null : "Exceeds height limit of " + limit;
     }
 
     @Override
-    public String getType() {
-        return "height-limit";
-    }
+    public double applyCost(double baseCost) { return baseCost; }
 }

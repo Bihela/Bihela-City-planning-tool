@@ -1,21 +1,15 @@
-package main.java.edu.curtin.app;
+package edu.curtin.app;
 
 public class FloodRiskRule implements ZoningRule {
     private final double risk;
 
-    public FloodRiskRule(double risk) {
-        if (risk < 0 || risk > 100) {
-            throw new IllegalArgumentException("Flood risk must be between 0 and 100: " + risk);
-        }
-        this.risk = risk;
-    }
+    public FloodRiskRule(double risk) { this.risk = risk; }
 
-    public double getRisk() {
-        return risk;
+    @Override
+    public String checkBuildable(Structure structure) { // Renamed from canBuild
+        return structure.getFloors() >= 2 ? null : "Flood risk requires at least 2 floors";
     }
 
     @Override
-    public String getType() {
-        return "flood-risk";
-    }
+    public double applyCost(double baseCost) { return baseCost * (1 + risk / 50); }
 }
