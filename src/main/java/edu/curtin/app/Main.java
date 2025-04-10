@@ -51,12 +51,10 @@ public class Main {
                     }
                 }
             }
-        } catch (IOException e) {
-            LOGGER.severe(() -> "Failed to load grid: " + e.getMessage());
-            System.exit(1);
-        } catch (NumberFormatException e) {
-            LOGGER.severe(() -> "Failed to load grid: invalid numeric value - " + e.getMessage());
-            System.exit(1);
+        
+        } catch (IllegalArgumentException | IOException e) {
+            System.out.println("Error: " + e.getMessage());
+            LOGGER.severe("Startup failed: " + e.getMessage());
         }
     }
 
