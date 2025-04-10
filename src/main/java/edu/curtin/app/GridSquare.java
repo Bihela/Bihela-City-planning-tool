@@ -45,7 +45,7 @@ public class GridSquare implements CostCalculator {
     }
 
     // Expose base cost calculation for the BaseCostCalculator
-    double baseCost(Structure structure) {
+    protected double baseCost(Structure structure) {
         double baseCost;
         switch (structure.getMaterial()) {
             case "wood": baseCost = 10000 * structure.getFloors(); break;
